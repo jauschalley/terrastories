@@ -22,15 +22,15 @@ export default class Map extends Component {
   componentDidMount() {
     // @NOTE: MAKE SURE ARRAY IS [LONGITUDE, LATITUDE]
     const bounds = [
-      [-60.80409032, 0.3332811], //southwest
-      [-52.41053563, 6.90258397] //northeast
+      [-180, -85], //southwest
+      [180, 85] //northeast
     ]
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: this.props.mapboxStyle,
-      center: [-55.63, 4.78],
-      zoom: 7.6,
+      center: [-98.5, 38.5],
+      zoom: 4,
       maxBounds: bounds
     });
     this.map.addControl(new mapboxgl.NavigationControl());
