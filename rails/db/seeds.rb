@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 georgetown = Place.find_or_create_by(name: 'Georgetown University', type_of_place: 'college campus');
 naturebridge = Place.find_or_create_by(name: 'NatureBridge Campus', type_of_place: 'nonprofit campus');
-rfg2018 = Point.find_or_create_by(title: "Ruby For Good 2018", lng: -77.073168, lat: 39.806302, region: "Washington DC", place: georgetown)
+rfg2018 = Point.find_or_create_by(title: "Ruby For Good 2018", lng: -77.073168, lat: 39.906302, region: "Washington DC", place: georgetown)
 rbtb2019 = Point.find_or_create_by(title: "Ruby By The Bay 2019", lng: -122.537419, lat: 37.832257, region: "California", place: naturebridge)
 miranda = Speaker.find_or_create_by(name: "Miranda Wang")
 kalimar = Speaker.find_or_create_by(name: "Kalimar Maia")
