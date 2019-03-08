@@ -29,8 +29,8 @@ export default class Map extends Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: this.props.mapboxStyle,
-      center: [-98.5, 38.5],
-      zoom: 4,
+      center: [-108, 38.5],
+      zoom: 3.5,
       maxBounds: bounds
     });
     this.map.addControl(new mapboxgl.NavigationControl());
