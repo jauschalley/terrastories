@@ -1,12 +1,25 @@
 class Place < ApplicationRecord
   require 'csv'
+
   has_many :points
 
-  def self.import_csv(filename)
-    CSV.parse(filename, headers: true) do |row|
-      loc = Place.where(name: row[0], type_of_place: row[1]).first_or_create
-      loc.points.create(title:row[0], lat: row[5].to_f, lng: row[4].to_f, region: row[3] )
+  def self.import_csv(csv_string)
+    CSV.parse(csv_string, headers: true).map do |csv_row|
+      name, type, description, region, lng, lat = csv_row.fields
+
+      new_location = Place.find_or_create_by(
+        name: name,
+        type_of_place: type
+      )
+
+      new_location.points.create(
+        title: name,
+        lat: lat.to_f,
+        lng: lng.to_f,
+        region: region
+      )
+
+      new_location
     end
   end
-
 end
