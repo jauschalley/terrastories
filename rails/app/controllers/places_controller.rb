@@ -74,27 +74,20 @@ class PlacesController < ApplicationController
     end
   end
 
-# delete photo attachment 
-  def delete
-    remove_attachment
+  # delete photo attachment
+  def delete_media
+    photo = ActiveStorage::Attachment.find(params[:attachment_id])
+    photo.purge
+    redirect_back(fallback_location: "/")
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      @place = Place.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  private def set_place
+    @place = Place.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def place_params
-      params.fetch(:place, {})
-    end
-
-    def remove_attachment
-      photo = ActiveStorage::Attachment.find(params[:attachment_id])
-      photo.purge
-      redirect_back(fallback_location: "/")
-    end
-
-
+  # Never trust parameters from the scary internet, only allow the white list through.
+  private def place_params
+    params.fetch(:place, {})
+  end
 end

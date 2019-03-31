@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-    delete '/admin/places' => 'places#delete'
-    delete '/admin/stories' => 'stories#delete'
+  delete '/admin/places/media' => 'places#delete_media'
+  delete '/admin/stories/media' => 'stories#delete_media'
 
   scope "(:locale)", locale: Regexp.union(I18n.available_locales.map(&:to_s)) do
     resources :places do

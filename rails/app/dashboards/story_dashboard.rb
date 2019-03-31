@@ -13,7 +13,7 @@ class StoryDashboard < Administrate::BaseDashboard
     desc: Field::Text,
     speaker: Field::BelongsTo,
     point: Field::BelongsTo,
-    media: Field::ActiveStorage.with_options({destroy_path: :admin_stories_path}),
+    media: Field::ActiveStorage.with_options(destroy_path: :admin_stories_media),
     permission_level: EnumField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
