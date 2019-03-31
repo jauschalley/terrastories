@@ -1,6 +1,6 @@
 FROM ruby:2.5.1
 RUN apt-get update
-RUN apt-get install -y apt-transport-https
+RUN apt-get install -y apt-transport-https ffmpeg
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
@@ -25,4 +25,3 @@ RUN chmod a+r /node_modules
 RUN mv yarn.lock /yarn.lock
 
 CMD /entrypoint.sh
-

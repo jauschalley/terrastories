@@ -49,8 +49,9 @@ class StoryList extends Component {
   renderStory = ({key, index, style, parent}) => {
     const story = this.props.stories[index];
     const storyClass = this.state.activeStoryIndex === index ? `story${index} isActive` : `story${index}`;
+    console.log(story.media)
     return (
-      <CellMeasurer 
+      <CellMeasurer
         key={key}
         cache={this.cache}
         parent={parent}

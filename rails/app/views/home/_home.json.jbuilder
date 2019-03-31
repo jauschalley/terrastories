@@ -6,6 +6,9 @@ json.stories stories do |story|
     json.id media.id
     json.url url_for(media)
     json.blob media.blob
+    ActiveStorage::Current.set(host: root_url ) do
+      json.thumbnail media.preview(frame: 10).processed.service_url
+    end
   end
   json.speaker do |speaker|
     json.extract! story.speaker, :name, :picture_url
