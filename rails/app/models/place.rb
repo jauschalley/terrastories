@@ -14,8 +14,8 @@ class Place < ApplicationRecord
 
       new_location.points.create(
         title: name,
-        lat: lat.to_f,
-        lng: lng.to_f,
+        lat: BigDecimal(lat),
+        lng: BigDecimal(lng),
         region: region
       )
 
