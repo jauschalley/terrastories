@@ -11,7 +11,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     points: Field::HasMany,
     id: Field::Number,
     name: Field::String,
-    photo: Field::ActiveStorage.with_options({destroy_path: :admin_places_path}),
+    photo: Field::ActiveStorage.with_options({destroy_path: :admin_places_media_path}),
     type_of_place: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,

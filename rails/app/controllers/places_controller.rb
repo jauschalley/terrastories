@@ -74,9 +74,11 @@ class PlacesController < ApplicationController
     end
   end
 
-# delete photo attachment 
-  def delete
-    remove_attachment
+# delete photo attachment
+  def delete_photo
+    photo = ActiveStorage::Attachment.find(params[:attachment_id])
+    photo.purge
+    redirect_back(fallback_location: "/")
   end
 
   private
@@ -89,12 +91,4 @@ class PlacesController < ApplicationController
     def place_params
       params.fetch(:place, {})
     end
-
-    def remove_attachment
-      photo = ActiveStorage::Attachment.find(params[:attachment_id])
-      photo.purge
-      redirect_back(fallback_location: "/")
-    end
-
-
 end
