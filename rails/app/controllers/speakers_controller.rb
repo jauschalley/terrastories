@@ -35,13 +35,6 @@ class SpeakersController < ApplicationController
     end
   end
 
-
-  def delete_photo
-    speaker = ActiveStorage::Attachment.find(params[:attachment_id])
-    speaker.purge
-    redirect_back(fallback_location: "/")
-  end
-
   def import_csv
     if params[:file].nil?
       redirect_back(fallback_location: root_path)

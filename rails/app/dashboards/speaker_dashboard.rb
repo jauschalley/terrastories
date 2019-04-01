@@ -9,7 +9,7 @@ class SpeakerDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    media: Field::ActiveStorage.with_options({destroy_path: :admin_speakers_media_path}),
+    media: Field::ActiveStorage,
     name: Field::String,
     region: Field::String,
     community: Field::String,

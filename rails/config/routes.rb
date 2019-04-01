@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   delete '/admin/places/media' => 'places#delete_photo'
   delete '/admin/stories/media' => 'stories#delete_media'
-  delete '/admin/speakers/media' => 'speakers#delete_photo'
 
   namespace :admin do
     resources :users
