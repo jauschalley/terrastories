@@ -27,7 +27,7 @@ class SpeakersController < ApplicationController
   end
 
 
-  def delete_speaker
+  def delete_speaker_media
     remove_attachment
   end
 
