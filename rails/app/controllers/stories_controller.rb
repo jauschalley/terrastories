@@ -29,8 +29,10 @@ class StoriesController < ApplicationController
     redirect_to story_path(@story)
   end
 
-  def delete
-    remove_attachment
+  def delete_media
+    media = ActiveStorage::Attachment.find(params[:attachment_id])
+    media.purge
+    redirect_back(fallback_location: "/")
   end
 
   def import_csv
@@ -51,9 +53,4 @@ class StoriesController < ApplicationController
     params.require(:story).permit(:title, :desc, :speaker_id, :point_id, media: [])
   end
 
-  def remove_attachment
-    media = ActiveStorage::Attachment.find(params[:attachment_id])
-    media.purge
-    redirect_back(fallback_location: "/")
-  end
 end
