@@ -26,7 +26,8 @@ class SpeakersController < ApplicationController
     redirect_to speaker_path(@speaker)
   end
 
-  def delete
+
+  def delete_speaker
     remove_attachment
   end
 
