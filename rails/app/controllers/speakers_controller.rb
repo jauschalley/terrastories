@@ -26,6 +26,15 @@ class SpeakersController < ApplicationController
     redirect_to speaker_path(@speaker)
   end
 
+  def destroy
+    @speaker = Speaker.find_by(id: params[:id])
+    @speaker.destroy
+    respond_to do |format|
+      format.html { redirect_to speakers_url, notice: 'Speaker was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
 
   def delete_photo
     speaker = ActiveStorage::Attachment.find(params[:attachment_id])
