@@ -27,8 +27,10 @@ class SpeakersController < ApplicationController
   end
 
 
-  def delete_speaker_media
-    remove_attachment
+  def delete_photo
+    speaker = ActiveStorage::Attachment.find(params[:attachment_id])
+    speaker.purge
+    redirect_back(fallback_location: "/")
   end
 
   def import_csv
@@ -47,11 +49,5 @@ class SpeakersController < ApplicationController
 
   def speaker_params
     params.require(:speaker).permit(:name, :media)
-  end
-
-  def remove_attachment
-    speaker = ActiveStorage::Attachment.find(params[:attachment_id])
-    speaker.purge
-    redirect_back(fallback_location: "/")
   end
 end
