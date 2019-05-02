@@ -1,5 +1,8 @@
 ![Terrastories](https://www.amazonteam.org/wp-content/uploads/2018/09/logo-1170x164.png)
 
+**Amazing work was done for Terrastories at Ruby by the Bay in March 2019**
+If you would like to contribute to the project please visit https://github.com/Terrastories/terrastories
+
 ## Table of Contents
 
 1. [About Terrastories](#about-terrastories)
